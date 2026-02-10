@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(dir:*)",
+      "Bash(copy \"E:\\\\00 SI3.0资料\\\\00 终版SI3.0\\\\外展成果资料包20250901\\\\04-1 效果图-临展室内版\\\\04-双车-立墙.jpg\" \"e:\\\\11 AI\\\\品牌空间 SI 使用网页\\\\scheme-dual-vehicle.jpg\")",
+      "Bash(npx skills add:*)",
+      "Bash(npx skills:*)",
+      "Bash(git init:*)",
+      "Bash(git config:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)"
+    ]
+  }
+}

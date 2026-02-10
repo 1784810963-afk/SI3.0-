@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>活动空间 - 选择方案</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            color: #2c3e50;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .page-wrapper {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        header {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            padding: 1.5rem 0;
+            box-shadow: 0 8px 32px rgba(30, 60, 114, 0.15);
+        }
+
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.85);
+            margin-bottom: 1rem;
+        }
+
+        .breadcrumb a {
+            color: #ffffff;
+            text-decoration: none;
+            cursor: pointer;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 0.8;
+        }
+
+        .breadcrumb span {
+            margin: 0 0.5rem;
+            opacity: 0.7;
+        }
+
+        .page-title {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .page-title h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 0.25rem;
+            letter-spacing: -0.5px;
+        }
+
+        .page-title .subtitle {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.85);
+            font-weight: 300;
+        }
+
+        main {
+            flex: 1;
+            padding: 3rem 2rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .selection-form {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+        }
+
+        .form-section {
+            margin-bottom: 2.5rem;
+        }
+
+        .form-section:last-child {
+            margin-bottom: 0;
+        }
+
+        .form-section h2 {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #1e3c72;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        .options-group {
+            display: grid;
+            gap: 1rem;
+        }
+
+        .option-item {
+            display: flex;
+            align-items: flex-start;
+            padding: 1.25rem;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .option-item:hover {
+            border-color: #1e90ff;
+            background: linear-gradient(135deg, #f0f4ff 0%, #e3f2fd 100%);
+            box-shadow: 0 4px 15px rgba(30, 144, 255, 0.1);
+        }
+
+        .option-item input[type="radio"] {
+            margin-right: 1rem;
+            margin-top: 0.2rem;
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: #1e90ff;
+            flex-shrink: 0;
+        }
+
+        .option-item input[type="radio"]:checked ~ .option-label .title {
+            color: #1e90ff;
+            font-weight: 700;
+        }
+
+        .option-label {
+            cursor: pointer;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .option-label .title {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #2c3e50;
+            margin-bottom: 0.4rem;
+            transition: color 0.3s ease;
+        }
+
+        .option-label .description {
+            font-size: 0.85rem;
+            color: #7a8593;
+            line-height: 1.5;
+        }
+
+        .form-section.hidden {
+            display: none;
+            opacity: 0;
+        }
+
+        .form-section.visible {
+            display: block;
+            animation: slideDown 0.4s ease;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-15px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .button-group {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            justify-content: flex-end;
+        }
+
+        button {
+            padding: 1rem 2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-submit {
+            background: linear-gradient(135deg, #1e90ff 0%, #1e3c72 100%);
+            color: white;
+            min-width: 180px;
+            box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
+        }
+
+        .btn-submit:hover:not(:disabled) {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(30, 144, 255, 0.4);
+        }
+
+        .btn-submit:active:not(:disabled) {
+            transform: translateY(0);
+        }
+
+        .btn-submit:disabled {
+            background: linear-gradient(135deg, #d3d3d3 0%, #a9a9a9 100%);
+            cursor: not-allowed;
+            box-shadow: none;
+        }
+
+        .btn-back {
+            background: #e9ecef;
+            color: #2c3e50;
+            border: 2px solid #dee2e6;
+        }
+
+        .btn-back:hover {
+            background: #dee2e6;
+            border-color: #adb5bd;
+        }
+
+        .tip-box {
+            background: linear-gradient(135deg, #f0f4ff 0%, #e3f2fd 100%);
+            border-left: 4px solid #1e90ff;
+            padding: 1.25rem;
+            margin-top: 1.25rem;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            color: #0d47a1;
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .tip-box.show {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        footer {
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+            margin-top: auto;
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        footer p {
+            margin: 0.25rem 0;
+            opacity: 0.95;
+        }
+
+        @media (max-width: 768px) {
+            main {
+                padding: 1.5rem 1rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+
+            .breadcrumb {
+                padding: 0 1rem;
+            }
+
+            .page-title h1 {
+                font-size: 1.5rem;
+            }
+
+            .selection-form {
+                padding: 1.5rem;
+            }
+
+            .button-group {
+                flex-direction: column-reverse;
+                gap: 1rem;
+            }
+
+            button {
+                width: 100%;
+                padding: 0.875rem 1.5rem;
+            }
+
+            .option-item {
+                padding: 1rem;
+            }
+
+            .option-item input[type="radio"] {
+                margin-right: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <header>
+            <div class="breadcrumb">
+                <a href="index.html">品牌空间</a>
+                <span>/</span>
+                <a href="activity-space.html">活动空间</a>
+                <span>/</span>
+                <span>选择方案</span>
+            </div>
+            <div class="page-title">
+                <h1>活动空间 · 场景选择</h1>
+                <p class="subtitle">根据你的业务需求，选择对应的场景方案</p>
+            </div>
+        </header>
+
+        <main>
+            <div class="container">
+                <form class="selection-form" id="activityForm">
+                    <!-- 第一步：活动类型 -->
+                    <div class="form-section">
+                        <h2>🎯 第一步：选择活动类型</h2>
+                        <div class="options-group">
+                            <label class="option-item">
+                                <input type="radio" name="activityType" value="exhibition"
+                                       onchange="updateSecondStep()">
+                                <div class="option-label">
+                                    <span class="title">外展</span>
+                                    <span class="description">路演、品牌展台、临时展示等场景</span>
+                                </div>
+                            </label>
+                            <label class="option-item">
+                                <input type="radio" name="activityType" value="conference" disabled>
+                                <div class="option-label">
+                                    <span class="title">会议</span>
+                                    <span class="description">论坛、年会、发布会等场景</span>
+                                </div>
+                            </label>
+                            <label class="option-item">
+                                <input type="radio" name="activityType" value="experience" disabled>
+                                <div class="option-label">
+                                    <span class="title">体验</span>
+                                    <span class="description">快闪店、体验馆、装置艺术等场景</span>
+                                </div>
+                            </label>
+                        </div>
+                        <div class="tip-box" id="tipActivityType">
+                            <strong>💡 提示：</strong> 当前演示版本仅包含「外展」场景的完整方案。
+                        </div>
+                    </div>
+
+                    <!-- 第二步：场景条件 -->
+                    <div class="form-section hidden" id="secondStep">
+                        <h2>📍 第二步：选择场景条件</h2>
+
+                        <div style="margin-bottom: 1.75rem;">
+                            <h3 style="font-size: 1rem; color: #1e3c72; margin-bottom: 0.75rem; font-weight: 700;">
+                                场地类型
+                            </h3>
+                            <div class="options-group">
+                                <label class="option-item">
+                                    <input type="radio" name="location" value="outdoor" onchange="validateForm()">
+                                    <div class="option-label">
+                                        <span class="title">室外</span>
+                                        <span class="description">开放式场地、广场、公园等环境</span>
+                                    </div>
+                                </label>
+                                <label class="option-item">
+                                    <input type="radio" name="location" value="indoor" onchange="validateForm()">
+                                    <div class="option-label">
+                                        <span class="title">室内</span>
+                                        <span class="description">会展中心、商业空间、综合体等环境</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 style="font-size: 1rem; color: #1e3c72; margin-bottom: 0.75rem; font-weight: 700;">
+                                展示规模
+                            </h3>
+                            <div class="options-group">
+                                <label class="option-item">
+                                    <input type="radio" name="scale" value="dual-vehicle" onchange="validateForm()">
+                                    <div class="option-label">
+                                        <span class="title">双车展示</span>
+                                        <span class="description">2辆车及配套展示设施的标准方案</span>
+                                    </div>
+                                </label>
+                                <label class="option-item">
+                                    <input type="radio" name="scale" value="multi-vehicle" onchange="validateForm()">
+                                    <div class="option-label">
+                                        <span class="title">多车展示</span>
+                                        <span class="description">3辆车及以上展示设施的方案</span>
+                                    </div>
+                                </label>
+                                <label class="option-item">
+                                    <input type="radio" name="scale" value="other-scale" onchange="validateForm()">
+                                    <div class="option-label">
+                                        <span class="title">其他规模</span>
+                                        <span class="description">小型展示、单车等特殊规模</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="tip-box" id="tipConditions" style="display: none;">
+                            <strong>✓ 已选择：</strong> <span id="conditionsSummary"></span>
+                        </div>
+                    </div>
+
+                    <!-- 按钮组 -->
+                    <div class="button-group">
+                        <button type="button" class="btn-back" onclick="goBack()">
+                            ← 返回首页
+                        </button>
+                        <button type="submit" class="btn-submit" id="submitBtn" disabled>
+                            查看方案 →
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </main>
+
+        <footer>
+            <p>品牌空间 SI 标准方案展示平台</p>
+        </footer>
+    </div>
+
+    <script>
+        const form = document.getElementById('activityForm');
+        const secondStep = document.getElementById('secondStep');
+        const tipActivityType = document.getElementById('tipActivityType');
+        const tipConditions = document.getElementById('tipConditions');
+        const conditionsSummary = document.getElementById('conditionsSummary');
+        const submitBtn = document.getElementById('submitBtn');
+
+        function updateSecondStep() {
+            const selectedActivity = document.querySelector('input[name="activityType"]:checked');
+
+            if (selectedActivity && selectedActivity.value === 'exhibition') {
+                secondStep.classList.remove('hidden');
+                secondStep.classList.add('visible');
+                tipActivityType.style.display = 'block';
+            } else {
+                secondStep.classList.add('hidden');
+                secondStep.classList.remove('visible');
+                tipActivityType.style.display = 'none';
+            }
+
+            validateForm();
+        }
+
+        function validateForm() {
+            const activityType = document.querySelector('input[name="activityType"]:checked');
+            const location = document.querySelector('input[name="location"]:checked');
+            const scale = document.querySelector('input[name="scale"]:checked');
+
+            if (activityType && activityType.value === 'exhibition') {
+                if (location && scale) {
+                    submitBtn.disabled = false;
+                    tipConditions.classList.add('show');
+
+                    const locationText = location.value === 'outdoor' ? '室外' : '室内';
+                    const scaleText = scale.value === 'dual-vehicle' ? '双车展示' :
+                                     (scale.value === 'multi-vehicle' ? '多车展示' : '其他规模');
+
+                    conditionsSummary.textContent = `${locationText} • ${scaleText}`;
+                } else {
+                    submitBtn.disabled = true;
+                    tipConditions.classList.remove('show');
+                }
+            } else {
+                submitBtn.disabled = true;
+                tipConditions.classList.remove('show');
+            }
+        }
+
+        function goBack() {
+            window.location.href = 'index.html';
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const activityType = document.querySelector('input[name="activityType"]:checked').value;
+            const location = document.querySelector('input[name="location"]:checked').value;
+            const scale = document.querySelector('input[name="scale"]:checked').value;
+
+            if (activityType === 'exhibition' && location === 'outdoor' && scale === 'dual-vehicle') {
+                window.location.href = 'solution-detail.html?activity=exhibition&location=outdoor&scale=dual-vehicle';
+            } else {
+                alert('当前演示版本仅支持"外展 + 室外 + 双车"的完整方案展示。其他组合敬请期待！');
+            }
+        });
+
+        tipActivityType.style.display = 'none';
+    </script>
+</body>
+</html>
