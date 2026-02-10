@@ -17,8 +17,8 @@
 
         body {
             font-family: 'Segoe UI', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #2c3e50;
+            background-color: #fafafa;
+            color: #2d2d2d;
             line-height: 1.6;
             min-height: 100vh;
         }
@@ -29,38 +29,38 @@
             flex-direction: column;
         }
 
-        /* 页面头部 */
         header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 1.5rem 0;
-            box-shadow: 0 8px 32px rgba(30, 60, 114, 0.15);
+            background-color: #ffffff;
+            padding: 2rem 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid #f0f0f0;
         }
 
         .breadcrumb {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
-            font-size: 0.9rem;
-            color: rgba(255,255,255,0.85);
-            margin-bottom: 1rem;
+            font-size: 0.85rem;
+            color: #999999;
+            margin-bottom: 1.5rem;
+            letter-spacing: 0.3px;
         }
 
         .breadcrumb a {
-            color: #ffffff;
+            color: #1a1a1a;
             text-decoration: none;
             cursor: pointer;
             font-weight: 500;
-            transition: opacity 0.3s ease;
+            transition: color 0.3s ease;
         }
 
         .breadcrumb a:hover {
-            opacity: 0.8;
+            color: #d4af37;
         }
 
         .breadcrumb span {
             margin: 0 0.5rem;
-            opacity: 0.7;
+            color: #cccccc;
         }
 
         .page-title {
@@ -71,18 +71,19 @@
 
         .page-title h1 {
             font-size: 2.25rem;
-            font-weight: 700;
+            font-weight: 300;
             margin-bottom: 0.25rem;
             letter-spacing: -0.5px;
+            color: #1a1a1a;
         }
 
         .page-title .subtitle {
-            font-size: 0.95rem;
-            color: rgba(255,255,255,0.85);
-            font-weight: 300;
+            font-size: 0.9rem;
+            color: #999999;
+            font-weight: 400;
+            letter-spacing: 0.3px;
         }
 
-        /* 主内容区 */
         main {
             flex: 1;
             padding: 3rem 2rem;
@@ -93,35 +94,35 @@
             margin: 0 auto;
         }
 
-        /* 内容区块 */
         .content-section {
-            background: white;
-            border-radius: 16px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            background: #ffffff;
+            border-radius: 2px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f5f5f5;
         }
 
         .content-section h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1e3c72;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #1a1a1a;
             margin-bottom: 1.75rem;
-            padding-bottom: 1rem;
-            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 1.25rem;
+            border-bottom: 1px solid #f0f0f0;
+            letter-spacing: 0.3px;
         }
 
-        /* 适用场景区 */
         .scenario-text {
-            font-size: 1rem;
+            font-size: 0.95rem;
             color: #555555;
             line-height: 1.8;
             margin-bottom: 1.25rem;
         }
 
         .scenario-text strong {
-            color: #1e3c72;
-            font-weight: 700;
+            color: #1a1a1a;
+            font-weight: 500;
         }
 
         .scenario-list {
@@ -133,136 +134,112 @@
             padding: 0.75rem 0;
             padding-left: 1.75rem;
             position: relative;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #555555;
             line-height: 1.6;
         }
 
         .scenario-list li:before {
-            content: "↳";
+            content: "—";
             position: absolute;
             left: 0;
-            color: #1e90ff;
-            font-weight: bold;
-            font-size: 1.1rem;
+            color: #d4af37;
+            font-weight: 300;
         }
 
-        /* 核心原则区 */
         .principles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
             margin-top: 1.5rem;
         }
 
         .principle-card {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
+            background: #fafafa;
+            border: 1px solid #f0f0f0;
+            border-radius: 2px;
             padding: 2rem;
-            border-left: 4px solid #1e90ff;
+            border-left: 1px solid #d4af37;
             transition: all 0.3s ease;
         }
 
         .principle-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 20px rgba(30, 144, 255, 0.1);
-            border-color: #1e90ff;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+            border-left: 2px solid #d4af37;
         }
 
         .principle-card h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #1e3c72;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #1a1a1a;
             margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .principle-card h3::before {
-            display: inline-block;
-            margin-right: 0.5rem;
-            font-size: 1.3rem;
+            letter-spacing: 0.3px;
         }
 
         .principle-card p {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #666666;
             line-height: 1.7;
         }
 
-        /* 示意图区 */
-        .image-section {
-            margin-bottom: 1.5rem;
-        }
-
         .image-caption {
             display: inline-block;
-            font-size: 0.8rem;
-            background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
-            color: #856404;
+            font-size: 0.75rem;
+            background: #fafafa;
+            color: #999999;
             padding: 0.5rem 0.85rem;
-            border-radius: 6px;
-            margin-bottom: 1.25rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            border: 1px solid #ffc107;
+            border-radius: 2px;
+            margin-bottom: 1.5rem;
+            font-weight: 500;
+            letter-spacing: 0.3px;
+            border: 1px solid #efefef;
         }
 
         .image-wrapper {
             position: relative;
-            border-radius: 12px;
+            border-radius: 2px;
             overflow: hidden;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
             margin-bottom: 1.5rem;
-            background: #f9f9f9;
+            background: #fafafa;
         }
 
         .image-wrapper img {
             width: 100%;
             height: auto;
             display: block;
-            border-radius: 12px;
         }
 
         .image-note {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             color: #555555;
             padding: 1.25rem;
-            background: #f0f4ff;
-            border-left: 4px solid #1e90ff;
-            border-radius: 8px;
+            background: #f9f9f9;
+            border-left: 1px solid #d4af37;
+            border-radius: 2px;
             line-height: 1.7;
         }
 
         .image-note strong {
-            color: #1e3c72;
-            font-weight: 700;
+            color: #1a1a1a;
+            font-weight: 500;
         }
 
-        /* 使用提醒区 */
         .warning-section {
-            background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
-            border: 2px solid #ffc107;
-            border-left: 4px solid #ff9800;
-            border-radius: 12px;
+            background: #fffaf0;
+            border: 1px solid #ffe8c6;
+            border-left: 1px solid #d4af37;
+            border-radius: 2px;
             padding: 2rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
         }
 
         .warning-section h3 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #856404;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #1a1a1a;
             margin-bottom: 1.25rem;
-            display: flex;
-            align-items: center;
-        }
-
-        .warning-section h3::before {
-            display: inline-block;
-            margin-right: 0.5rem;
-            font-size: 1.3rem;
+            letter-spacing: 0.3px;
         }
 
         .warning-section ul {
@@ -271,117 +248,102 @@
         }
 
         .warning-section li {
-            font-size: 0.95rem;
-            color: #856404;
+            font-size: 0.9rem;
+            color: #555555;
             padding: 0.75rem 0;
             padding-left: 1.75rem;
             position: relative;
-            line-height: 1.7;
+            line-height: 1.6;
         }
 
         .warning-section li:before {
-            content: "!";
+            content: "•";
             position: absolute;
             left: 0;
+            color: #d4af37;
             font-weight: bold;
-            color: #ff9800;
-            font-size: 1.2rem;
         }
 
-        /* 页脚按钮区 */
         .footer-actions {
-            background: white;
-            border-radius: 16px;
+            background: #ffffff;
+            border-radius: 2px;
             padding: 2.5rem;
             text-align: center;
             margin-top: 2rem;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f5f5f5;
         }
 
         .footer-actions p {
-            font-size: 0.95rem;
+            font-size: 0.9rem;
             color: #666666;
             margin-bottom: 1.5rem;
-            font-weight: 500;
+            font-weight: 400;
+            letter-spacing: 0.3px;
         }
 
         .button-group {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
             justify-content: center;
             flex-wrap: wrap;
         }
 
         button, a.btn {
-            padding: 1rem 2rem;
-            font-size: 0.95rem;
-            font-weight: 600;
+            padding: 0.95rem 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
             border: none;
-            border-radius: 8px;
+            border-radius: 2px;
             cursor: pointer;
             transition: all 0.3s ease;
-            letter-spacing: 0.5px;
+            letter-spacing: 0.3px;
             text-decoration: none;
             display: inline-block;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #1e90ff 0%, #1e3c72 100%);
-            color: white;
-            box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
+            background: #1a1a1a;
+            color: #ffffff;
         }
 
         .btn-primary:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(30, 144, 255, 0.4);
-        }
-
-        .btn-secondary {
-            background: #e9ecef;
-            color: #2c3e50;
-            border: 2px solid #dee2e6;
-        }
-
-        .btn-secondary:hover {
-            background: #dee2e6;
-            border-color: #adb5bd;
-            transform: translateY(-2px);
+            background: #333333;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .btn-text {
-            background: transparent;
-            color: #1e90ff;
-            border: 2px solid #1e90ff;
+            background: #ffffff;
+            color: #1a1a1a;
+            border: 1px solid #f0f0f0;
         }
 
         .btn-text:hover {
-            background: linear-gradient(135deg, #f0f4ff 0%, #e3f2fd 100%);
-            transform: translateY(-2px);
+            background: #fafafa;
+            border-color: #d4af37;
         }
 
-        /* 页脚 */
         footer {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
+            background-color: #ffffff;
+            color: #888888;
             text-align: center;
             padding: 2.5rem;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             margin-top: auto;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+            border-top: 1px solid #f0f0f0;
+            letter-spacing: 0.3px;
         }
 
         footer p {
             margin: 0.4rem 0;
-            opacity: 0.95;
         }
 
         footer p:last-child {
             font-size: 0.8rem;
-            opacity: 0.75;
+            color: #aaaaaa;
             margin-top: 0.75rem;
         }
 
-        /* 响应式设计 */
         @media (max-width: 768px) {
             main {
                 padding: 1.5rem 1rem;
@@ -428,7 +390,6 @@
 </head>
 <body>
     <div class="page-wrapper">
-        <!-- 页面头部 -->
         <header>
             <div class="breadcrumb">
                 <a href="index.html">品牌空间</a>
@@ -443,12 +404,11 @@
             </div>
         </header>
 
-        <!-- 主内容 -->
         <main>
             <div class="container">
                 <!-- 适用场景说明 -->
                 <section class="content-section">
-                    <h2>📍 适用场景</h2>
+                    <h2>适用场景</h2>
 
                     <p class="scenario-text">
                         本方案适用于<strong>室外开放场景中进行品牌展示和产品展览</strong>的情况。特别是在展览中心外部广场、公园、商业街区或其他临时展示场地进行双车（2辆车）规模的品牌外展活动。
@@ -464,18 +424,14 @@
                         <li>城市户外活动和快闪店展示</li>
                         <li>品牌体验活动现场（产品试驾、互动体验等）</li>
                     </ul>
-
-                    <p class="scenario-text" style="margin-top: 1.5rem; color: #888; font-size: 0.9rem;">
-                        这些场景通常对空间布局的灵活性要求高、对视觉冲击力要求高、对品牌一致性要求严格。
-                    </p>
                 </section>
 
                 <!-- 品牌核心原则 -->
                 <section class="content-section">
-                    <h2>🎯 品牌空间核心原则</h2>
+                    <h2>品牌空间核心原则</h2>
 
-                    <p style="color: #666666; margin-bottom: 1.75rem; font-size: 0.95rem;">
-                        在展开本方案时，以下几点品牌标准必须严格遵循，确保所有展示场景保持一致的品牌印象：
+                    <p style="color: #666666; margin-bottom: 1.75rem; font-size: 0.9rem;">
+                        在展开本方案时，以下几点品牌标准必须严格遵循：
                     </p>
 
                     <div class="principles-grid">
@@ -496,7 +452,7 @@
                         <div class="principle-card">
                             <h3>人流动线与场景秩序</h3>
                             <p>
-                                空间设计需通过合理的位置布局、围挡、指引等手段，引导参观者流向，维持现场秩序，确保品牌体验的完整性和专业感。
+                                空间设计需通过合理的位置布局、围挡、指引等手段，引导参观者流向，维持现场秩序，确保品牌体验的完整性。
                             </p>
                         </div>
                     </div>
@@ -504,7 +460,7 @@
 
                 <!-- 方案效果示意图 -->
                 <section class="content-section">
-                    <h2>🖼 方案效果示意</h2>
+                    <h2>方案效果示意</h2>
 
                     <div class="image-section">
                         <span class="image-caption">示意用途</span>
@@ -514,28 +470,28 @@
                         </div>
 
                         <div class="image-note">
-                            <strong>图片说明：</strong> 本图展示了双车展示方案的整体空间布局、主视觉位置、车辆相对关系以及人流动线的示意。这是一份<strong>示意级方案</strong>，用于沟通空间布局原则和品牌要素的相对关系，<strong>不是完整的施工图或技术细节图</strong>。
+                            <strong>图片说明：</strong> 本图展示了双车展示方案的整体空间布局、主视觉位置、车辆相对关系以及人流动线的示意。这是一份<strong>示意级方案</strong>，用于沟通空间布局原则和品牌要素的相对关系。
                         </div>
                     </div>
                 </section>
 
                 <!-- 使用提醒 -->
                 <section class="warning-section">
-                    <h3>⚠ 重要提醒</h3>
+                    <h3>重要提醒</h3>
                     <ul>
-                        <li><strong>示意级别：</strong> 本图示仅用于沟通空间布局关系和品牌原则，不是完整的设计方案或施工依据。</li>
-                        <li><strong>现场调整：</strong> 实际施工和搭建时需根据现场尺寸、地形、天气等因素进行调整，不能完全按示意图施工。</li>
-                        <li><strong>非详细设计：</strong> 本方案不包含材料、尺寸、工艺、成本等详细设计信息，也不涵盖安全、审批、许可等相关事宜。</li>
-                        <li><strong>建议合作：</strong> 建议与专业的展台/活动设计团队深化设计，将品牌原则转化为可执行的完整方案。</li>
+                        <li><strong>示意级别</strong>：本图示仅用于沟通空间布局关系和品牌原则，不是完整的设计方案或施工依据。</li>
+                        <li><strong>现场调整</strong>：实际施工和搭建时需根据现场尺寸、地形、天气等因素进行调整，不能完全按示意图施工。</li>
+                        <li><strong>非详细设计</strong>：本方案不包含材料、尺寸、工艺、成本等详细设计信息。</li>
+                        <li><strong>专业合作</strong>：建议与专业的展台/活动设计团队深化设计，将品牌原则转化为可执行的完整方案。</li>
                     </ul>
                 </section>
 
                 <!-- 页脚操作区 -->
                 <section class="footer-actions">
-                    <p>还有其他问题或需要其他方案？</p>
+                    <p>需要其他方案或有其他疑问？</p>
                     <div class="button-group">
                         <button class="btn-text" onclick="goBack()">
-                            ← 修改选择条件
+                            ← 修改条件
                         </button>
                         <button class="btn-primary" onclick="goHome()">
                             返回首页 →
@@ -545,7 +501,6 @@
             </div>
         </main>
 
-        <!-- 页脚 -->
         <footer>
             <p>品牌空间 SI 标准方案展示平台</p>
             <p>本演示为方案示意展示，具体实施应与设计团队深入沟通。</p>
@@ -568,7 +523,7 @@
             const scale = params.get('scale');
 
             if (activity !== 'exhibition' || location !== 'outdoor' || scale !== 'dual-vehicle') {
-                console.warn('无效的路由参数');
+                console.warn('Invalid route parameters');
             }
         }
 

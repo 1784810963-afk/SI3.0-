@@ -17,13 +17,12 @@
 
         body {
             font-family: 'Segoe UI', 'Helvetica Neue', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            color: #2c3e50;
+            background-color: #fafafa;
+            color: #2d2d2d;
             line-height: 1.6;
             min-height: 100vh;
         }
 
-        /* 页面容器 */
         .page-wrapper {
             min-height: 100vh;
             display: flex;
@@ -32,46 +31,31 @@
 
         /* 头部 */
         header {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 3rem 2rem;
-            box-shadow: 0 8px 32px rgba(30, 60, 114, 0.15);
-            position: relative;
-            overflow: hidden;
-        }
-
-        header::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            right: 0;
-            width: 400px;
-            height: 400px;
-            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
-            border-radius: 50%;
-            transform: translate(100px, -100px);
+            background-color: #ffffff;
+            padding: 3.5rem 2rem;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+            border-bottom: 1px solid #f0f0f0;
         }
 
         header .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
-            position: relative;
-            z-index: 1;
         }
 
         header h1 {
             font-size: 2.5rem;
-            font-weight: 700;
+            font-weight: 300;
             margin-bottom: 0.75rem;
-            letter-spacing: -0.5px;
+            letter-spacing: -1px;
+            color: #1a1a1a;
         }
 
         header p {
-            font-size: 1.1rem;
-            opacity: 0.95;
-            font-weight: 300;
-            letter-spacing: 0.3px;
+            font-size: 0.95rem;
+            color: #888888;
+            font-weight: 400;
+            letter-spacing: 0.5px;
         }
 
         /* 主内容区 */
@@ -87,14 +71,13 @@
 
         /* 简介区 */
         .intro-section {
-            margin-bottom: 3.5rem;
-            padding: 2.5rem;
-            background: white;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
-            border: none;
+            margin-bottom: 4rem;
+            padding: 3rem;
+            background: #ffffff;
+            border-radius: 2px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            border: 1px solid #f5f5f5;
             position: relative;
-            overflow: hidden;
         }
 
         .intro-section::before {
@@ -103,31 +86,33 @@
             left: 0;
             top: 0;
             height: 100%;
-            width: 4px;
-            background: linear-gradient(180deg, #1e90ff 0%, #1e3c72 100%);
+            width: 1px;
+            background: linear-gradient(180deg, #d4af37 0%, #c9a961 50%, transparent 100%);
         }
 
         .intro-section h2 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: #1e3c72;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #1a1a1a;
             margin-bottom: 1rem;
+            letter-spacing: 0.5px;
         }
 
         .intro-section p {
-            font-size: 1rem;
-            color: #555555;
+            font-size: 0.95rem;
+            color: #666666;
             line-height: 1.8;
         }
 
         /* 分类标题 */
         .section-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: #1e3c72;
-            margin-bottom: 2rem;
+            font-size: 1.3rem;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 3rem;
             position: relative;
-            padding-bottom: 1rem;
+            padding-bottom: 1.5rem;
+            letter-spacing: 0.5px;
         }
 
         .section-title::after {
@@ -135,27 +120,26 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(90deg, #1e90ff, #1e3c72);
-            border-radius: 3px;
+            width: 40px;
+            height: 1px;
+            background: #d4af37;
         }
 
         /* 卡片网格 */
         .cards-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-            gap: 2.5rem;
+            gap: 2rem;
             margin-top: 2rem;
         }
 
         .card {
-            background: white;
-            border: none;
-            border-radius: 16px;
+            background: #ffffff;
+            border: 1px solid #f0f0f0;
+            border-radius: 2px;
             overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
-            transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             display: flex;
             flex-direction: column;
             position: relative;
@@ -168,16 +152,16 @@
             top: 0;
             left: 0;
             right: 0;
-            height: 3px;
-            background: linear-gradient(90deg, #1e90ff, #1e3c72);
+            height: 2px;
+            background: linear-gradient(90deg, #d4af37, #c9a961);
             transform: scaleX(0);
             transform-origin: left;
-            transition: transform 0.35s ease;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(30, 60, 114, 0.15);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border-color: #e8e8e8;
         }
 
         .card:hover::before {
@@ -185,9 +169,9 @@
         }
 
         .card-header {
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            padding: 2rem 1.5rem;
-            border-bottom: 1px solid #e9ecef;
+            background: #ffffff;
+            padding: 2.5rem 2rem;
+            border-bottom: 1px solid #f5f5f5;
         }
 
         .card-icon {
@@ -197,110 +181,111 @@
         }
 
         .card-header h3 {
-            font-size: 1.3rem;
-            font-weight: 700;
-            color: #1e3c72;
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #1a1a1a;
             margin-bottom: 0.5rem;
+            letter-spacing: 0.5px;
         }
 
         .card-body {
-            padding: 1.5rem;
+            padding: 2rem;
             flex: 1;
             display: flex;
             flex-direction: column;
         }
 
         .card-description {
-            font-size: 0.95rem;
-            color: #666666;
+            font-size: 0.9rem;
+            color: #777777;
             margin-bottom: 1.5rem;
             line-height: 1.7;
             flex: 1;
         }
 
         .card-status {
-            font-size: 0.8rem;
-            color: #666666;
+            font-size: 0.75rem;
+            color: #999999;
             padding: 0.6rem 1rem;
-            background: linear-gradient(135deg, #f0f4ff 0%, #e3f2fd 100%);
-            border-radius: 6px;
+            background: #fafafa;
+            border-radius: 1px;
             display: inline-block;
             margin-top: auto;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             font-weight: 500;
-            border-left: 3px solid #1e90ff;
+            letter-spacing: 0.3px;
+            border: 1px solid #efefef;
         }
 
         /* 按钮样式 */
         .card-link {
             display: inline-block;
-            padding: 0.9rem 1.8rem;
-            background: linear-gradient(135deg, #1e90ff 0%, #1e3c72 100%);
-            color: white;
+            padding: 0.95rem 2rem;
+            background-color: #1a1a1a;
+            color: #ffffff;
             text-decoration: none;
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-weight: 600;
+            border-radius: 1px;
+            font-size: 0.9rem;
+            font-weight: 500;
             transition: all 0.3s ease;
             text-align: center;
             border: none;
             cursor: pointer;
-            box-shadow: 0 4px 15px rgba(30, 144, 255, 0.3);
             letter-spacing: 0.5px;
         }
 
         .card-link:hover:not(.card-disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(30, 144, 255, 0.4);
+            background-color: #333333;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
         }
 
         .card-link:active:not(.card-disabled) {
-            transform: translateY(0);
+            background-color: #1a1a1a;
         }
 
         .card-disabled {
-            opacity: 0.65;
+            opacity: 0.5;
             cursor: not-allowed;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
         }
 
         .card-disabled:hover {
-            transform: none;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            background-color: #1a1a1a;
+            box-shadow: none;
         }
 
         /* 占位符提示 */
         .placeholder-badge {
             display: inline-block;
-            font-size: 0.75rem;
-            background: linear-gradient(135deg, #fff3cd 0%, #ffe69c 100%);
-            color: #856404;
+            font-size: 0.7rem;
+            background-color: #f5f5f5;
+            color: #999999;
             padding: 0.4rem 0.7rem;
-            border-radius: 4px;
+            border-radius: 1px;
             margin-top: 0.5rem;
             font-weight: 600;
             letter-spacing: 0.3px;
+            border: 1px solid #efefef;
         }
 
         /* 页脚 */
         footer {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
+            background-color: #ffffff;
+            color: #888888;
             text-align: center;
-            padding: 2.5rem;
-            font-size: 0.9rem;
+            padding: 3rem 2rem;
+            font-size: 0.85rem;
             margin-top: auto;
-            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+            border-top: 1px solid #f0f0f0;
+            letter-spacing: 0.3px;
         }
 
         footer p {
             margin: 0.4rem 0;
-            opacity: 0.95;
         }
 
         footer p:last-child {
             font-size: 0.8rem;
-            opacity: 0.75;
+            color: #aaaaaa;
             margin-top: 0.75rem;
         }
 
@@ -311,11 +296,11 @@
             }
 
             header h1 {
-                font-size: 1.8rem;
+                font-size: 1.75rem;
             }
 
             header p {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
 
             main {
@@ -332,19 +317,20 @@
             }
 
             .section-title {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+                margin-bottom: 2rem;
             }
 
             .intro-section {
-                padding: 1.5rem;
+                padding: 2rem;
             }
 
             .card-header {
-                padding: 1.5rem 1rem;
+                padding: 1.75rem 1.5rem;
             }
 
             .card-body {
-                padding: 1rem;
+                padding: 1.5rem;
             }
         }
 
@@ -374,7 +360,7 @@
         <header>
             <div class="container">
                 <h1>品牌空间标准方案</h1>
-                <p>优雅展示 · 标准遵循 · 智能选择</p>
+                <p>简约 · 精致 · 标准化</p>
             </div>
         </header>
 
@@ -382,8 +368,8 @@
             <div class="container">
                 <!-- 简介 -->
                 <section class="intro-section">
-                    <h2>🎯 如何使用</h2>
-                    <p>选择您的业务场景，我们将为您精准展示相应的品牌标准方案。这些经过品牌团队认可的方案示意，帮助您快速理解品牌空间的核心原则与使用边界。</p>
+                    <h2>如何使用</h2>
+                    <p>选择您的业务场景，我们将为您精准展示符合品牌标准的空间方案。这些经过品牌团队认可的示意方案，帮助您快速理解空间设计的核心原则与应用边界。</p>
                 </section>
 
                 <!-- 空间类型选择 -->
@@ -397,9 +383,9 @@
                         </div>
                         <div class="card-body">
                             <p class="card-description">
-                                门店、专柜、销售展示等零售场景的品牌空间方案。包括商业综合体、购物中心、品牌旗舰店等多种形态。
+                                门店、专柜、销售展示等零售场景的品牌空间方案。
                             </p>
-                            <span class="placeholder-badge">📋 演示版本敬请期待</span>
+                            <span class="placeholder-badge">敬请期待</span>
                             <button class="card-link card-disabled" disabled>
                                 进入
                             </button>
@@ -414,9 +400,9 @@
                         </div>
                         <div class="card-body">
                             <p class="card-description">
-                                办公、展厅、体验中心等综合功能场景的品牌方案。涵盖企业总部、创意园区、沉浸式体验空间等。
+                                办公、展厅、体验中心等综合功能场景的品牌方案。
                             </p>
-                            <span class="placeholder-badge">📋 演示版本敬请期待</span>
+                            <span class="placeholder-badge">敬请期待</span>
                             <button class="card-link card-disabled" disabled>
                                 进入
                             </button>
@@ -431,11 +417,11 @@
                         </div>
                         <div class="card-body">
                             <p class="card-description">
-                                外展、路演、活动现场等临时空间的品牌方案示意。支持多种场地类型与展示规模的灵活方案组合。
+                                外展、路演、活动现场等临时空间的品牌方案示意。
                             </p>
-                            <span class="card-status">✓ 演示版本完整展开</span>
+                            <span class="card-status">✓ 演示版完整展开</span>
                             <a href="activity-space.html" class="card-link">
-                                进入 →
+                                进入
                             </a>
                         </div>
                     </div>
@@ -445,7 +431,7 @@
 
         <footer>
             <p>品牌空间 SI 标准方案展示平台</p>
-            <p>本平台展示的方案均为示意级别，用于沟通空间布局原则。</p>
+            <p>本平台所展示的方案为示意级别，用于沟通设计原则。</p>
         </footer>
     </div>
 </body>
